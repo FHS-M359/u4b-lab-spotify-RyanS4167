@@ -3,11 +3,11 @@ public class Song {
     private int durationSeconds;
     private int releaseYear;
     private String genre;
-    public Song(String title, String artist, String album, int seconds, int year, String genre){
+    public Song(String title, String artist, String album, int year, String genre){
         this.title = title;
         this.artist = artist;
         this.album = album;
-        durationSeconds = seconds;
+        durationSeconds = 0;
         releaseYear = year;
         this.genre = genre;
     }
@@ -60,18 +60,7 @@ public class Song {
         this.genre = genre;
     }
     public String toString(){
-        return String.format("%-15s %-13s %-15s %-6s %5s%n", title, artist, album, releaseYear, genre);
+        return String.format("%-15s %-13s %-15s %-6d %5s%n", title, artist, album, releaseYear, genre);
     }
-    public void readSongData(){
 
-    }
-    public void searchDisplayByGenre(){
-
-    }
-    public void sortByArtist(){
-
-    }
-    public void sortByYear(){
-
-    }
 }
