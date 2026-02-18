@@ -12,49 +12,85 @@ public class Song {
         this.genre = genre;
     }
 
+
+
+
     public String getTitle() {
         return title;
     }
+
+
+
 
     public String getArtist() {
         return artist;
     }
 
+
+
+
     public String getAlbum() {
         return album;
     }
+
+
+
 
     public int getDurationSeconds() {
         return durationSeconds;
     }
 
+
+
+
     public int getReleaseYear() {
         return releaseYear;
     }
+
+
+
 
     public String getGenre() {
         return genre;
     }
 
+
+
+
     public void setTitle(String title) {
         this.title = title;
     }
+
+
+
 
     public void setArtist(String artist) {
         this.artist = artist;
     }
 
+
+
+
     public void setAlbum(String album) {
         this.album = album;
     }
+
+
+
 
     public void setDurationSeconds(int durationSeconds) {
         this.durationSeconds = durationSeconds;
     }
 
+
+
+
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
+
+
+
 
     public void setGenre(String genre) {
         this.genre = genre;
@@ -63,4 +99,12 @@ public class Song {
         return String.format("%-15s %-13s %-15s %-6d %5s%n", title, artist, album, releaseYear, genre);
     }
 
+
+
+
 }
+
+
+
+
+
