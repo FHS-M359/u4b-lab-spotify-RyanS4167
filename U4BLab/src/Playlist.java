@@ -69,6 +69,7 @@ public class Playlist {
             songs.set(minIndex, temp);
         }
     }
+    //Selection sort
     public void sortByZA(){
         for (int i = 0; i<songs.size() -1; i++) {
             int minIndex = i;
@@ -84,9 +85,26 @@ public class Playlist {
             songs.set(i, songs.get(minIndex));
             songs.set(minIndex, temp);
         }
-
+    }
+    public void sortByOldToNew(){
+        for(int i =1; i<songs.size(); i++){
+            Song tempVal = songs.get(i);
+            int position = i;
+            while(position>0 && songs.get(position-1).getReleaseYear() > tempVal.getReleaseYear()){
+                songs.set(position, songs.get(position-1));
+                position--;
+            }
+            songs.set(position, tempVal);
+        }
 
     }
+    public void sortByNewToOld(){
+        for(int i =1; i< songs.size(); i++){
+
+        }
+
+    }
+
 }
 
 

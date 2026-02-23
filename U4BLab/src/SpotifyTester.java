@@ -28,8 +28,10 @@ public class SpotifyTester {
                 playlist.sortByZA();
                 System.out.println(playlist);
             }
-
-
+            if(choice == 3) {
+                playlist.sortByOldToNew();
+                System.out.println(playlist);
+            }
             if (choice == 5) {
                 System.out.println("Enter Genre :");
                 String genre = scan.next();
