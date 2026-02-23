@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,47 +11,85 @@ public class Playlist {
         return songs;
     }
     public String toString() {
-        String result = String.format("%-20s %-18s %-19s %-8s %-12s%n", "Title",
+        String result = String.format("%-20s %-20s %-19s %-8s %15s", "Title",
                 "Artist", "Album", "Year", "Genre");
-        result += "---------------------------------------------------------------------------------------------\n";
+        result += "\n---------------------------------------------------------------------------------------------\n";
         for (Song s : songs) {
             result += s;
         }
         return result;
     }
-    public static void readSongData() throws FileNotFoundException {
-        Scanner scan = new Scanner(new File("spotify_unique_years_artists.txt"));
-        ArrayList<Song> song = new ArrayList<Song>();
-        while(scan.hasNextLine()){
-            String line = scan.nextLine();
-            String[] parts = line.split(",");
-            String title = parts[0];
-            String artist = parts[1];
-            String album = parts[2];
-            int year = Integer.parseInt(parts[4]);
-            String genre = parts[5];
-            Song songs = new Song(title, artist, album, year, genre);
-            song.add(songs);
+    public void readSongData(String filename) {
+        try {
+            Scanner fileScan = new Scanner(new File("spotify_unique_years_artists.txt"));
+            while (fileScan.hasNextLine()) {
+                String line = fileScan.nextLine();
+                String[] parts = line.split(",");
+                String title = parts[0];
+                String artist = parts[1];
+                String album = parts[2];
+                int year = Integer.parseInt(parts[4]);
+                String genre = parts[5];
+                Song s = new Song(title, artist, album, year, genre);
+                songs.add(s);
+            }
+            fileScan.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
         }
-        scan.close();
-        Song.printInfo(song);
     }
-    public static void searchByGenre(String input){
+
+
+
+
+    public void searchByGenre(String input){
         boolean found = false;
         for (Song s : songs){
             if(s.getGenre().equalsIgnoreCase(input) ){
                 System.out.println(s);
                 found = true;
             }
-            else {
-                System.out.println("No songs in this genre are found.");
-            }
+        }
+        if(!found) {
+            System.out.println("No songs in this genre are found.");
         }
     }
-    public static void sortByAZ(){
-        
+    //Selection sort
+    public void sortByAZ(){
+        for (int i = 0; i<songs.size() -1; i++){
+            int minIndex = i;
+            for(int j = i+1; j<songs.size(); j++){
+                int compare = songs.get(j).getArtist().compareToIgnoreCase(songs.get(minIndex).getArtist());
+                if(compare<0){
+                    minIndex = j;
+                }
+            }
+            Song temp = songs.get(i);
+            songs.set(i, songs.get(minIndex));
+            songs.set(minIndex, temp);
+        }
     }
+    public void sortByZA(){
+        for (int i = 0; i<songs.size() -1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < songs.size(); j++) {
+                int compare = songs.get(j).getArtist().compareToIgnoreCase(songs.get(minIndex).getArtist());
+                if (compare > 0) {
+                    minIndex = j;
+                }
+            }
 
+
+            Song temp = songs.get(i);
+            songs.set(i, songs.get(minIndex));
+            songs.set(minIndex, temp);
+        }
+
+
+    }
 }
+
+
+
 
 

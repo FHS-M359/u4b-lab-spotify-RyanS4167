@@ -1,17 +1,14 @@
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-
-
 public class SpotifyTester {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scan = new Scanner(System.in);
         int choice = 0;
+        Playlist playlist = new Playlist();
+        playlist.readSongData("spotify_unique_years_artists.txt");
         while(choice != 7){
             System.out.println("===== Spotify Menu =====");
             System.out.println(1 + " - Sort by artist(A-Z)");
@@ -23,7 +20,29 @@ public class SpotifyTester {
             System.out.println(7 + " - Quit");
             System.out.println("Choose an option: ");
             choice = getValidOption(scan);
+            if(choice ==1) {
+                playlist.sortByAZ();
+                System.out.print(playlist);
+            }
+            if(choice == 2){
+                playlist.sortByZA();
+                System.out.println(playlist);
+            }
+
+
+            if (choice == 5) {
+                System.out.println("Enter Genre :");
+                String genre = scan.next();
+                playlist.searchByGenre(genre);
+            }
+
+
+
+
         }
+
+
+
 
     }
     public static int getValidOption(Scanner scan){
@@ -40,13 +59,13 @@ public class SpotifyTester {
             }
             catch (InputMismatchException e){
                 System.out.println("Please enter only numbers 1-7");
+                scan.next();
             }
         }
     }
-
-
-
 }
+
+
 
 
 
