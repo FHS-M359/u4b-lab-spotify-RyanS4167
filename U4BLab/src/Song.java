@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 public class Song {
     private String title, artist, album;
     private int durationSeconds;
@@ -99,7 +98,7 @@ public class Song {
         this.genre = genre;
     }
     public String toString(){
-        return String.format("%-20s %-20s %-19s %-8d %15s%n", title, artist, album, releaseYear, genre);
+        return String.format("%-20s %-16s %20s %20d %15s%n", title, artist, album, releaseYear, genre);
     }
 }
 

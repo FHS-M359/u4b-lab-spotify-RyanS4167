@@ -32,21 +32,22 @@ public class SpotifyTester {
                 playlist.sortByOldToNew();
                 System.out.println(playlist);
             }
+            if(choice == 4){
+                playlist.sortByNewToOld();
+                System.out.println(playlist);
+            }
             if (choice == 5) {
                 System.out.println("Enter Genre :");
                 String genre = scan.next();
                 playlist.searchByGenre(genre);
             }
-
-
-
-
+            if(choice == 7){
+                System.out.println("Bye have a good one!");
+                scan.close();
+            }
         }
-
-
-
-
     }
+
     public static int getValidOption(Scanner scan){
         int choice = 0;
         while(true){

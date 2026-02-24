@@ -11,9 +11,9 @@ public class Playlist {
         return songs;
     }
     public String toString() {
-        String result = String.format("%-20s %-20s %-19s %-8s %15s", "Title",
+        String result = String.format("%-20s %-16s %-20s %20s %15s", "Title",
                 "Artist", "Album", "Year", "Genre");
-        result += "\n---------------------------------------------------------------------------------------------\n";
+        result += "\n---------------------------------------------------------------------------------------------------\n";
         for (Song s : songs) {
             result += s;
         }
@@ -99,8 +99,14 @@ public class Playlist {
 
     }
     public void sortByNewToOld(){
-        for(int i =1; i< songs.size(); i++){
-
+        for(int i =1; i<songs.size(); i++){
+            Song tempVal = songs.get(i);
+            int position = i;
+            while(position>0 && songs.get(position-1).getReleaseYear() < tempVal.getReleaseYear()){
+                songs.set(position, songs.get(position-1));
+                position--;
+            }
+            songs.set(position, tempVal);
         }
 
     }
