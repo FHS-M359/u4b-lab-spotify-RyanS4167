@@ -18,7 +18,7 @@ public class SpotifyTester {
             System.out.println(5 + " - Search by Genre");
             System.out.println(6 + " - Display all songs");
             System.out.println(7 + " - Quit");
-            System.out.println("Choose an option: ");
+            System.out.println("Choose a number: ");
             choice = getValidOption(scan);
             if(choice ==1) {
                 playlist.sortByAZ();
@@ -42,12 +42,19 @@ public class SpotifyTester {
                 playlist.searchByGenre(genre);
             }
             if(choice == 7){
-                System.out.println("Bye have a good one!");
+                System.out.println("Bye thanks for trying it!");
                 scan.close();
             }
         }
     }
 
+    /**
+     * Takes in the parameter scan, checking if the input is a number>= 1 and <=-7
+     * Implemented try catch checks if its greater than 7 or less than 1, and
+     * checks if the input is an actual number
+     * @param scan
+     * @return
+     */
     public static int getValidOption(Scanner scan){
         int choice = 0;
         while(true){

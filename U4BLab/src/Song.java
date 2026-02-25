@@ -97,6 +97,11 @@ public class Song {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
+    /**
+     * String format to space out the variables in a uniform way
+     * @return
+     */
     public String toString(){
         return String.format("%-20s %-16s %20s %20d %15s%n", title, artist, album, releaseYear, genre);
     }

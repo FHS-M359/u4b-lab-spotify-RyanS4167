@@ -10,6 +10,11 @@ public class Playlist {
     public ArrayList<Song> getSongs() {
         return songs;
     }
+
+    /**
+     * String format to space the variables correctly in a uniform way
+     * @return
+     */
     public String toString() {
         String result = String.format("%-20s %-16s %-20s %20s %15s", "Title",
                 "Artist", "Album", "Year", "Genre");
@@ -19,6 +24,11 @@ public class Playlist {
         }
         return result;
     }
+
+    /**
+     *
+     * @param filename
+     */
     public void readSongData(String filename) {
         try {
             Scanner fileScan = new Scanner(new File("spotify_unique_years_artists.txt"));
@@ -40,8 +50,10 @@ public class Playlist {
     }
 
 
-
-
+    /**
+     * Linear search method
+     * @param input
+     */
     public void searchByGenre(String input){
         boolean found = false;
         for (Song s : songs){
@@ -54,7 +66,13 @@ public class Playlist {
             System.out.println("No songs in this genre are found.");
         }
     }
-    //Selection sort
+
+    /**
+     * Selection sort method
+     * uses a for loop to go through all the rows of songs, albums, etc.
+     * nested for loop also goes through the same as the one its in
+     *
+     */
     public void sortByAZ(){
         for (int i = 0; i<songs.size() -1; i++){
             int minIndex = i;
@@ -69,7 +87,11 @@ public class Playlist {
             songs.set(minIndex, temp);
         }
     }
-    //Selection sort
+
+    /**
+     * Selection sort method
+     *
+     */
     public void sortByZA(){
         for (int i = 0; i<songs.size() -1; i++) {
             int minIndex = i;
@@ -86,6 +108,10 @@ public class Playlist {
             songs.set(minIndex, temp);
         }
     }
+
+    /**
+     * Insertion sort method
+     */
     public void sortByOldToNew(){
         for(int i =1; i<songs.size(); i++){
             Song tempVal = songs.get(i);
@@ -98,6 +124,10 @@ public class Playlist {
         }
 
     }
+
+    /**Insertion sort method
+     *
+     */
     public void sortByNewToOld(){
         for(int i =1; i<songs.size(); i++){
             Song tempVal = songs.get(i);
