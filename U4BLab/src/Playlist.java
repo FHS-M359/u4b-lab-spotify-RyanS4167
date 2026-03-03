@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 public class Playlist {
     private static ArrayList<Song> songs;
+
+    /**
+     * Constructor to be used in SpotifyTester Class
+     */
     public Playlist(){
         songs = new ArrayList<>();
     }
@@ -12,11 +16,11 @@ public class Playlist {
     }
 
     /**
-     * String format to space the variables correctly in a uniform way
+     * String format to space the titles for sections correctly in a uniform way
      * @return
      */
     public String toString() {
-        String result = String.format("%-20s %-16s %-20s %20s %15s", "Title",
+        String result = String.format("%-22s %-20s %-28s %-6s %-12s", "Title",
                 "Artist", "Album", "Year", "Genre");
         result += "\n---------------------------------------------------------------------------------------------------\n";
         for (Song s : songs) {
@@ -26,7 +30,8 @@ public class Playlist {
     }
 
     /**
-     *
+     *Will scan the data of the file being read, and then
+     * put the data into a song ArrayList
      * @param filename
      */
     public void readSongData(String filename) {
@@ -52,6 +57,8 @@ public class Playlist {
 
     /**
      * Linear search method
+     * Takes in the parameter typed in
+     * Scans for any genre matching from the parameter and the txt file
      * @param input
      */
     public void searchByGenre(String input){
@@ -90,7 +97,8 @@ public class Playlist {
 
     /**
      * Selection sort method
-     *
+     *uses a for loop to go through all the rows of songs, albums, etc.
+     * nested for loop also goes through the same as the one its in
      */
     public void sortByZA(){
         for (int i = 0; i<songs.size() -1; i++) {
@@ -111,6 +119,7 @@ public class Playlist {
 
     /**
      * Insertion sort method
+     *
      */
     public void sortByOldToNew(){
         for(int i =1; i<songs.size(); i++){

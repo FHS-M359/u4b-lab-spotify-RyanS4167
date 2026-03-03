@@ -41,6 +41,9 @@ public class SpotifyTester {
                 String genre = scan.next();
                 playlist.searchByGenre(genre);
             }
+            if(choice == 6){
+                System.out.println(playlist);
+            }
             if(choice == 7){
                 System.out.println("Bye thanks for trying it!");
                 scan.close();

@@ -7,6 +7,15 @@ public class Song {
     private int durationSeconds;
     private int releaseYear;
     private String genre;
+
+    /**
+     * Constructor for song object in Playlist class
+     * @param title
+     * @param artist
+     * @param album
+     * @param year
+     * @param genre
+     */
     public Song(String title, String artist, String album, int year, String genre){
         this.title = title;
         this.artist = artist;
@@ -99,11 +108,11 @@ public class Song {
     }
 
     /**
-     * String format to space out the variables in a uniform way
+     * String format to space out the instance variables in a uniform way
      * @return
      */
     public String toString(){
-        return String.format("%-20s %-16s %20s %20d %15s%n", title, artist, album, releaseYear, genre);
+        return String.format("%-22s %-20s %-28s %-6d %-12s%n", title, artist, album, releaseYear, genre);
     }
 }
 
