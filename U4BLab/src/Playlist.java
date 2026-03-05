@@ -59,6 +59,7 @@ public class Playlist {
      * Linear search method
      * Takes in the parameter typed in
      * Scans for any genre matching from the parameter and the txt file
+     * Prints the song if the variable genre from txt file matches the input
      * @param input
      */
     public void searchByGenre(String input){
@@ -78,6 +79,7 @@ public class Playlist {
      * Selection sort method
      * uses a for loop to go through all the rows of songs, albums, etc.
      * nested for loop also goes through the same as the one its in
+     * Switches values so its song objects by increasing alphabetical order
      *
      */
     public void sortByAZ(){
@@ -99,6 +101,7 @@ public class Playlist {
      * Selection sort method
      *uses a for loop to go through all the rows of songs, albums, etc.
      * nested for loop also goes through the same as the one its in
+     * Switches values so songs objects are decreasing alphabetical order
      */
     public void sortByZA(){
         for (int i = 0; i<songs.size() -1; i++) {
@@ -119,6 +122,8 @@ public class Playlist {
 
     /**
      * Insertion sort method
+     * Saves a year index,
+     * Shifts larger elements to the right when inserting the smaller year
      *
      */
     public void sortByOldToNew(){
@@ -135,7 +140,8 @@ public class Playlist {
     }
 
     /**Insertion sort method
-     *
+     *Saves a year index each iteration
+     * Shifts larger elements to the left when inserting the smaller year
      */
     public void sortByNewToOld(){
         for(int i =1; i<songs.size(); i++){
